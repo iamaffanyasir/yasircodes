@@ -1,17 +1,11 @@
 import { 
-  getAuth, 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged,
   User
 } from 'firebase/auth';
-import app from '../firebase/config';
+import { auth } from '../firebase/config';
 
-// Initialize auth
-const auth = getAuth(app);
-
-// Create auth service
 export const authService = {
   createUser: async (email: string, password: string, name: string) => {
     try {
@@ -41,14 +35,10 @@ export const authService = {
 
   checkAuth: () => {
     return new Promise<User | null>((resolve) => {
-      const unsubscribe = onAuthStateChanged(auth, (user) => {
+      const unsubscribe = auth.onAuthStateChanged((user) => {
         unsubscribe();
         resolve(user);
       });
     });
-  },
-
-  onAuthStateChanged: (callback: (user: User | null) => void) => {
-    return onAuthStateChanged(auth, callback);
   }
 }; 
