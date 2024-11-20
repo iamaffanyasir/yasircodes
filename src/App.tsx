@@ -11,6 +11,10 @@ import LoadingScreen from './components/LoadingScreen';
 import Resume from './pages/Resume';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
+import ManageProjects from './pages/admin/ManageProjects';
+import ManageResume from './pages/admin/ManageResume';
+import ManageAbout from './pages/admin/ManageAbout';
+import ManageMessages from './pages/admin/ManageMessages';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
@@ -50,6 +54,26 @@ function App() {
               <Route path="/admin/dashboard" element={
                 <ProtectedRoute>
                   <AdminDashboard />
+                </ProtectedRoute>
+              } />
+              <Route path="/admin/manage-projects" element={
+                <ProtectedRoute>
+                  <ManageProjects />
+                </ProtectedRoute>
+              } />
+              <Route path="/admin/manage-resume" element={
+                <ProtectedRoute>
+                  <ManageResume />
+                </ProtectedRoute>
+              } />
+              <Route path="/admin/manage-about" element={
+                <ProtectedRoute>
+                  <ManageAbout />
+                </ProtectedRoute>
+              } />
+              <Route path="/admin/manage-messages" element={
+                <ProtectedRoute>
+                  <ManageMessages />
                 </ProtectedRoute>
               } />
             </Routes>

@@ -1,0 +1,130 @@
+.manage-container {
+  min-height: 100vh;
+  padding: 80px 20px 20px;
+  background-color: var(--dark-navy);
+}
+
+.manage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--light-navy);
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.manage-header h1 {
+  color: var(--lightest-slate);
+  font-size: 24px;
+  margin: 0;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 1px solid var(--slate);
+  border-radius: 4px;
+  color: var(--slate);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  color: var(--green);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+.projects-list {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-item {
+  background-color: var(--light-navy);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--lightest-navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-info h3 {
+  color: var(--lightest-slate);
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  color: var(--slate);
+  margin-bottom: 15px;
+}
+
+.project-tags {
+  display: flex;
+  gap: 10px;
+}
+
+.project-tags span {
+  background-color: rgba(100, 255, 218, 0.1);
+  color: var(--green);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.project-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-btn {
+  background-color: transparent;
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+
+.edit-btn:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: 1px solid #ff6b6b;
+  color: #ff6b6b;
+}
+
+.delete-btn:hover {
+  background-color: rgba(255, 107, 107, 0.1);
+} 

@@ -1,34 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { account } from '../appwrite/config';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { authService } from '../utils/auth';
 import './Header.css';
 
 const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-
+  const location = useLocation();
+  
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    const checkAuth = async () => {
+      const user = await authService.checkAuth();
+      setIsAuthenticated(!!user);
     };
-
-    window.addEventListener('scroll', handleScroll);
     checkAuth();
-
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const checkAuth = async () => {
-    try {
-      await account.getSession('current');
-      setIsAuthenticated(true);
-    } catch {
-      setIsAuthenticated(false);
-    }
-  };
 
   const handleAdminClick = () => {
     if (isAuthenticated) {
@@ -40,19 +27,13 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className="header">
       <nav className="nav-container">
         <Link to="/" className="logo">
           YasirCodes
         </Link>
 
-        <div className={`menu-icon ${isMenuOpen ? 'open' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
+        <ul className="nav-links">
           <li>
             <Link 
               to="/" 

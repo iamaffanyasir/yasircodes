@@ -7,9 +7,46 @@ const Resume: React.FC = () => {
   const experience = [
     {
       title: "Full Stack Developer",
-      company: "Company Name",
-      location: "Location",
-      period: "2022 - Present",
+      company: "Visualter - Self Employed",
+      location: "New Delhi, India",
+      period: "2019 - Present",
+      points: [
+        "Developed and maintained multiple web applications using React, Node.js, and MongoDB",
+        "Implemented responsive designs and improved application performance by 40%",
+        "Collaborated with cross-functional teams to deliver high-quality solutions",
+        "Led a team of 3 developers in successful project deliveries"
+      ]
+    },
+
+    {
+      title: "IoT Developer Trainee",
+      company: "Samsung Innovation Campus",
+      location: "New Delhi, India",
+      period: "Sep 2024 - Dec 2024",
+      points: [
+        "Developed and maintained multiple web applications using React, Node.js, and MongoDB",
+        "Implemented responsive designs and improved application performance by 40%",
+        "Collaborated with cross-functional teams to deliver high-quality solutions",
+        "Led a team of 3 developers in successful project deliveries"
+      ]
+    },
+    {
+      title: "Front End Developer Intern",
+      company: "BlinksWeb Technology",
+      location: "New Delhi, India",
+      period: "Jan 2023 - July 2023",
+      points: [
+        "Developed and maintained multiple web applications using React, Node.js, and MongoDB",
+        "Implemented responsive designs and improved application performance by 40%",
+        "Collaborated with cross-functional teams to deliver high-quality solutions",
+        "Led a team of 3 developers in successful project deliveries"
+      ]
+    },
+    {
+      title: "Python Developer Intern",
+      company: "Tech Explica",
+      location: "New Delhi, India",
+      period: "Jan 2019 - July 2019",
       points: [
         "Developed and maintained multiple web applications using React, Node.js, and MongoDB",
         "Implemented responsive designs and improved application performance by 40%",
@@ -24,9 +61,22 @@ const Resume: React.FC = () => {
     {
       degree: "Bachelor of Technology",
       field: "Computer Science",
-      school: "Your University",
-      location: "Location",
-      period: "2018 - 2022",
+      school: "Jamia Hamdard University",
+      location: "New Delhi, India",
+      period: "2021 - 2024",
+      achievements: [
+        "Graduated with First Class Honours",
+        "Specialized in Artificial Intelligence and Machine Learning",
+        "Led multiple technical projects",
+        "GPA: 3.8/4.0"
+      ]
+    },
+    {
+      degree: "Diploma in Computer Science",
+      field: "Computer Science",
+      school: "Aditya Institute of Technology",
+      location: "New Delhi, India",
+      period: "2016 - 2019",
       achievements: [
         "Graduated with First Class Honours",
         "Specialized in Artificial Intelligence and Machine Learning",
@@ -55,18 +105,49 @@ const Resume: React.FC = () => {
 
   const certifications = [
     {
-      name: "AWS Certified Developer",
-      issuer: "Amazon Web Services",
-      date: "2023",
+      name: "Internet of Things",
+      issuer: "Samsung Innovation Campus",
+      date: "December 2024",
       link: "#"
     },
     {
-      name: "Google Cloud Professional",
-      issuer: "Google",
-      date: "2023",
-      link: "#"
+      name: "NodeJS",
+      issuer: "Scaler Topics",
+      date: "July 2023",
+      link: "https://drive.google.com/file/d/13oOCXge9G4ouLYqs17yq-PE0n0XYqcAo/view?usp=drive_link"
+    },
+    {
+      name: "JavaScript - Mastering the Fundamentals",
+      issuer: "Scaler Topics",
+      date: "July 2023",
+      link: "https://drive.google.com/file/d/1gP8rNVM3DhEaL8Tjoy20NYaDHzY0B3UD/view?usp=drive_link"
+    },
+    {
+      name: "Python and SQL for Data Science",
+      issuer: "Scaler Topics",
+      date: "August 2023",
+      link: "https://drive.google.com/file/d/1gVyNuhGfrNdSgMYUPXK_Pl2wsUdJYCtX/view?usp=drive_link"
+    },
+    {
+      name: "SQL for Beginners",
+      issuer: "Scaler Topics",
+      date: "August 2023",
+      link: "https://drive.google.com/file/d/10RNjhh87OzmSKn2oniCC57f4GeuWu28h/view?usp=drive_link"
+    },
+    {
+      name: "JavaScript Algorithms and Data Structures",
+      issuer: "FreeCodeCamp",
+      date: "March 2023",
+      link: "https://drive.google.com/file/d/1268-CiZzKmNuqGtkQ0bN5bM2XrbqgVhu/view?usp=drive_link"
+    },
+    {
+      name: "Responsive Web Design",
+      issuer: "FreeCodeCamp",
+      date: "March 2023",
+      link: "https://drive.google.com/file/d/1dVJGeohDBE8XotKhshMnXuDFabIvQlQv/view?usp=drive_link"
     }
   ];
+  
 
   return (
     <section className="resume-page">

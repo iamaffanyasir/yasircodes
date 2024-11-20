@@ -1,47 +1,31 @@
-import { account, ID } from '../appwrite/config';
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  User
+} from 'firebase/auth';
+import app from '../firebase/config';
 
-const generateValidUserId = (email: string): string => {
-  // Remove special characters and convert to lowercase
-  const cleanEmail = email.toLowerCase().replace(/[^a-z0-9]/g, '');
-  // Take first 20 characters of email and add a unique string
-  return cleanEmail.slice(0, 20) + '_' + ID.unique().slice(0, 10);
-};
+// Initialize auth
+const auth = getAuth(app);
 
-export const auth = {
+// Create auth service
+export const authService = {
   createUser: async (email: string, password: string, name: string) => {
     try {
-      // Generate a valid user ID that meets Appwrite's requirements
-      const userId = generateValidUserId(email);
-      
-      // Create the user with the valid ID
-      await account.create(
-        userId,
-        email,
-        password,
-        name
-      );
-
-      // After creating user, log them in
-      return await auth.login(email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      return userCredential.user;
     } catch (error: any) {
-      // If user already exists, try to log in instead
-      if (error.code === 409) {
-        return await auth.login(email, password);
-      }
       throw error;
     }
   },
 
   login: async (email: string, password: string) => {
     try {
-      // Create a new session
-      await account.createSession(
-        email,
-        password
-      );
-      
-      // Get and return the user data
-      return await account.get();
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      return userCredential.user;
     } catch (error) {
       throw error;
     }
@@ -49,17 +33,22 @@ export const auth = {
 
   logout: async () => {
     try {
-      await account.deleteSession('current');
+      await signOut(auth);
     } catch (error) {
       throw error;
     }
   },
 
-  checkAuth: async () => {
-    try {
-      return await account.get();
-    } catch {
-      return null;
-    }
+  checkAuth: () => {
+    return new Promise<User | null>((resolve) => {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        unsubscribe();
+        resolve(user);
+      });
+    });
+  },
+
+  onAuthStateChanged: (callback: (user: User | null) => void) => {
+    return onAuthStateChanged(auth, callback);
   }
 }; 

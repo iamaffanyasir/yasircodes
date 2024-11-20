@@ -5,22 +5,22 @@ const Footer: React.FC = () => {
   const socialLinks = [
     {
       name: 'GitHub',
-      url: 'https://github.com/yourusername',
+      url: 'https://github.com/iamaffanyasir',
       icon: 'fab fa-github'
     },
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/yourusername',
+      url: 'https://www.linkedin.com/in/mohammad-affan-yasir-6a1976179/',
       icon: 'fab fa-linkedin-in'
     },
     {
       name: 'Twitter',
-      url: 'https://twitter.com/yourusername',
+      url: 'https://x.com/wolverine1k999',
       icon: 'fab fa-twitter'
     },
     {
       name: 'Instagram',
-      url: 'https://instagram.com/yourusername',
+      url: 'https://www.instagram.com/imaffanyasir/',
       icon: 'fab fa-instagram'
     }
   ];

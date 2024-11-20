@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../utils/auth';
+import { authService } from '../../utils/auth';
 import './AdminLogin.css';
 
 const AdminLogin: React.FC = () => {
@@ -29,22 +29,18 @@ const AdminLogin: React.FC = () => {
 
     try {
       if (isSignup) {
-        await auth.createUser(
+        await authService.createUser(
           formData.email,
           formData.password,
-          formData.name || formData.email
+          formData.name
         );
       } else {
-        await auth.login(formData.email, formData.password);
+        await authService.login(formData.email, formData.password);
       }
       navigate('/admin/dashboard');
     } catch (err: any) {
-      console.error('Login error:', err);
-      if (err.code === 409) {
-        setError('User already exists. Please login instead.');
-      } else {
-        setError(err.message || 'Invalid email or password');
-      }
+      console.error('Auth error:', err);
+      setError(err.message || 'Authentication failed');
     } finally {
       setLoading(false);
     }

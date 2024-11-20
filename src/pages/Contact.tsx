@@ -68,21 +68,21 @@ const Contact: React.FC = () => {
               <i className="fas fa-envelope"></i>
               <div>
                 <h3>Email</h3>
-                <p>visualter4dev@gmail.com</p>
+                <p>yasirmohammadaffan@gmail.com</p>
               </div>
             </div>
             <div className="info-item">
               <i className="fas fa-map-marker-alt"></i>
               <div>
                 <h3>Location</h3>
-                <p>Your Location</p>
+                <p>New Delhi, India</p>
               </div>
             </div>
             <div className="info-item">
               <i className="fas fa-phone"></i>
               <div>
                 <h3>Phone</h3>
-                <p>Your Phone Number</p>
+                <p>+91-7011188053</p>
               </div>
             </div>
           </div>

@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../utils/auth';
+import { authService } from '../../utils/auth';
 import './AdminDashboard.css';
 
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
-  const [activeSection, setActiveSection] = useState('overview');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const user = await auth.checkAuth();
+        const user = await authService.checkAuth();
         if (user) {
           setIsAuthenticated(true);
         } else {
@@ -26,95 +25,79 @@ const AdminDashboard: React.FC = () => {
 
   const handleLogout = async () => {
     try {
-      await auth.logout();
+      await authService.logout();
       navigate('/admin/login');
     } catch (error) {
       console.error('Logout error:', error);
     }
   };
 
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
+
   if (!isAuthenticated) return null;
 
   return (
-    <div className="admin-container">
-      {/* Sidebar */}
-      <aside className="admin-sidebar">
-        <div className="sidebar-header">
-          <h2>Admin Panel</h2>
-        </div>
-        
-        <nav className="sidebar-nav">
-          <button 
-            className={`nav-link ${activeSection === 'overview' ? 'active' : ''}`}
-            onClick={() => setActiveSection('overview')}
-          >
-            <i className="fas fa-home"></i>
-            <span>Overview</span>
-          </button>
-          
-          <button 
-            className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}
-            onClick={() => setActiveSection('projects')}
-          >
+    <div className="dashboard-container">
+      <div className="dashboard-header">
+        <h1>Admin Dashboard</h1>
+        <button onClick={handleLogout} className="logout-button">
+          <i className="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+
+      <div className="dashboard-content">
+        <div className="dashboard-cards">
+          <div className="dashboard-card">
             <i className="fas fa-project-diagram"></i>
-            <span>Projects</span>
-          </button>
-          
-          <button 
-            className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
-            onClick={() => setActiveSection('about')}
-          >
+            <h3>Projects</h3>
+            <p>Manage your projects</p>
+            <button 
+              className="card-button"
+              onClick={() => handleNavigation('/admin/manage-projects')}
+            >
+              View Projects
+            </button>
+          </div>
+
+          <div className="dashboard-card">
+            <i className="fas fa-file-alt"></i>
+            <h3>Resume</h3>
+            <p>Update your resume</p>
+            <button 
+              className="card-button"
+              onClick={() => handleNavigation('/admin/manage-resume')}
+            >
+              Edit Resume
+            </button>
+          </div>
+
+          <div className="dashboard-card">
             <i className="fas fa-user"></i>
-            <span>About</span>
-          </button>
-          
-          <button 
-            className={`nav-link ${activeSection === 'messages' ? 'active' : ''}`}
-            onClick={() => setActiveSection('messages')}
-          >
+            <h3>About</h3>
+            <p>Edit your information</p>
+            <button 
+              className="card-button"
+              onClick={() => handleNavigation('/admin/manage-about')}
+            >
+              Edit About
+            </button>
+          </div>
+
+          <div className="dashboard-card">
             <i className="fas fa-envelope"></i>
-            <span>Messages</span>
-          </button>
-          
-          <button 
-            className={`nav-link ${activeSection === 'settings' ? 'active' : ''}`}
-            onClick={() => setActiveSection('settings')}
-          >
-            <i className="fas fa-cog"></i>
-            <span>Settings</span>
-          </button>
-        </nav>
-
-        <div className="sidebar-footer">
-          <button className="logout-btn" onClick={handleLogout}>
-            <i className="fas fa-sign-out-alt"></i>
-            <span>Logout</span>
-          </button>
-        </div>
-      </aside>
-
-      {/* Main Content */}
-      <main className="admin-main">
-        <header className="admin-header">
-          <div className="header-title">
-            <h1>{activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}</h1>
-          </div>
-          <div className="header-actions">
-            <div className="user-info">
-              <span>Admin</span>
-              <i className="fas fa-user-circle"></i>
-            </div>
-          </div>
-        </header>
-
-        <div className="admin-content">
-          {/* Content will be added based on activeSection */}
-          <div className="content-placeholder">
-            <h2>Welcome to {activeSection} section</h2>
-            <p>Content for {activeSection} will be displayed here</p>
+            <h3>Messages</h3>
+            <p>View your messages</p>
+            <button 
+              className="card-button"
+              onClick={() => handleNavigation('/admin/manage-messages')}
+            >
+              View Messages
+            </button>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 };

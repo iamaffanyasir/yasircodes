@@ -1,22 +1,46 @@
-import { Client, Account, Databases, Storage, ID, Models } from 'appwrite';
+import { Client, Account, Databases, Storage, ID } from 'appwrite';
 
-const client = new Client()
-    .setEndpoint('https://cloud.appwrite.io/v1')
-    .setProject('673d93c1000afeb303e5');
+// Check if environment variables are loaded
+if (!process.env.REACT_APP_APPWRITE_ENDPOINT || !process.env.REACT_APP_APPWRITE_PROJECT_ID) {
+    console.error('Environment Variables:', {
+        endpoint: process.env.REACT_APP_APPWRITE_ENDPOINT,
+        projectId: process.env.REACT_APP_APPWRITE_PROJECT_ID
+    });
+    throw new Error('Missing Appwrite environment variables');
+}
 
-// Initialize Appwrite services
+const client = new Client();
+
+// Set endpoint and project
+client
+    .setEndpoint(process.env.REACT_APP_APPWRITE_ENDPOINT)
+    .setProject(process.env.REACT_APP_APPWRITE_PROJECT_ID);
+
+// Initialize services
 export const account = new Account(client);
 export const databases = new Databases(client);
 export const storage = new Storage(client);
-
-// Export constants
-export const DATABASE_ID = '673d943e00241224469b';
-export const PROJECTS_COLLECTION_ID = '673da7ed0004b53a3dd3';
-export const BUCKET_ID = '673d94540010ad690b66';
-
-// Export types
-export type AppwriteDocument = Models.Document;
-
-// Export other utilities
 export { ID };
-export { client }; 
+
+// Export database constants with fallback values
+export const DATABASE_ID = process.env.REACT_APP_APPWRITE_DATABASE_ID || '';
+export const PROJECTS_COLLECTION_ID = process.env.REACT_APP_APPWRITE_COLLECTION_ID || '';
+export const BUCKET_ID = process.env.REACT_APP_APPWRITE_BUCKET_ID || '';
+
+// Add console log to debug
+console.log('Appwrite Config Loaded:', {
+    endpoint: process.env.REACT_APP_APPWRITE_ENDPOINT,
+    projectId: process.env.REACT_APP_APPWRITE_PROJECT_ID,
+    databaseId: DATABASE_ID,
+    collectionId: PROJECTS_COLLECTION_ID,
+    bucketId: BUCKET_ID
+});
+
+export interface AppwriteDocument {
+    $id: string;
+    $createdAt: string;
+    $updatedAt: string;
+    $permissions: string[];
+    $collectionId: string;
+    $databaseId: string;
+} 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
-import { auth } from '../utils/auth';
+import { authService } from '../utils/auth';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -11,18 +11,14 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 
   useEffect(() => {
     const checkAuth = async () => {
-      try {
-        const user = await auth.checkAuth();
-        setIsAuthenticated(!!user);
-      } catch {
-        setIsAuthenticated(false);
-      }
+      const user = await authService.checkAuth();
+      setIsAuthenticated(!!user);
     };
     checkAuth();
   }, []);
 
   if (isAuthenticated === null) {
-    return null; // or a loading spinner
+    return null;
   }
 
   if (!isAuthenticated) {

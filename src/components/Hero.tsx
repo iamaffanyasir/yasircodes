@@ -69,20 +69,20 @@ const Hero: React.FC = () => {
         </div>
 
         <div className="social-links-vertical">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/iamaffanyasir" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-github"></i>
           </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/mohammad-affan-yasir-6a1976179/" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin-in"></i>
           </a>
-          <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://x.com/wolverine1k999" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-twitter"></i>
           </a>
           <div className="social-line"></div>
         </div>
 
         <div className="email-link">
-          <a href="mailto:your.email@example.com">your.email@example.com</a>
+          <a href="mailto:yasirmohammadaffan@gmail.com">yasirmohammadaffan@gmail.com</a>
           <div className="email-line"></div>
         </div>
 

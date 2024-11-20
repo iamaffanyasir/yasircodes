@@ -1,0 +1,77 @@
+.messages-list {
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+}
+
+.message-item {
+  background-color: var(--light-navy);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--lightest-navy);
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.message-header h3 {
+  color: var(--lightest-slate);
+  font-size: 18px;
+}
+
+.message-date {
+  color: var(--slate);
+  font-size: 14px;
+  font-family: 'Fira Code', monospace;
+}
+
+.message-email {
+  color: var(--green);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.message-content {
+  color: var(--slate);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.message-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.reply-btn, .delete-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reply-btn {
+  background-color: transparent;
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+
+.reply-btn:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: 1px solid #ff6b6b;
+  color: #ff6b6b;
+}
+
+.delete-btn:hover {
+  background-color: rgba(255, 107, 107, 0.1);
+} 
