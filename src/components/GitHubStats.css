@@ -191,7 +191,7 @@
 
 @media (max-width: 768px) {
   .github-stats {
-    padding: 80px 50px;
+    padding: 60px 20px;
   }
 
   .github-profile {
@@ -211,11 +211,76 @@
   .github-graphs {
     grid-template-columns: 1fr;
   }
+
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .stat-card {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: var(--light-navy);
+    border: 1px solid var(--lightest-navy);
+    transition: transform 0.3s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .stat-number {
+    font-size: 32px;
+    color: var(--green);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: var(--slate);
+    font-family: 'Fira Code', monospace;
+  }
+
+  .contributions {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--light-navy);
+    border-radius: 8px;
+    border: 1px solid var(--lightest-navy);
+  }
+
+  .contributions-title {
+    font-size: 18px;
+    color: var(--lightest-slate);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .contributions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8px, 1fr));
+    gap: 3px;
+    justify-content: center;
+  }
+
+  .contribution-day {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    transition: transform 0.2s ease;
+  }
+
+  .contribution-day:hover {
+    transform: scale(1.2);
+  }
 }
 
 @media (max-width: 480px) {
   .github-stats {
-    padding: 60px 25px;
+    padding: 40px 15px;
   }
 
   .github-stats-grid {
@@ -224,6 +289,60 @@
 
   .github-profile {
     padding: 15px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-number {
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  .contributions {
+    margin-top: 25px;
+    padding: 15px;
+  }
+
+  .contributions-title {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .contributions-grid {
+    gap: 2px;
+  }
+
+  .contribution-day {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* Add loading animation for stats */
+  .stat-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  .stat-card:nth-child(1) { animation-delay: 0.1s; }
+  .stat-card:nth-child(2) { animation-delay: 0.2s; }
+  .stat-card:nth-child(3) { animation-delay: 0.3s; }
+  .stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 

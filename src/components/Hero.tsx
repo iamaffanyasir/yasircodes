@@ -96,6 +96,27 @@ const Hero: React.FC = () => {
             <span></span>
           </div>
         </div>
+
+        <div className="social-links-mobile">
+          <a href="https://github.com/iamaffanyasir" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/mohammad-affan-yasir-6a1976179/" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://x.com/wolverine1k999" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/imaffanyasir/" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-instagram"></i>
+          </a>
+        </div>
+
+        <div className="email-link-mobile">
+          <a href="mailto:yasirmohammadaffan@gmail.com">
+            yasirmohammadaffan@gmail.com
+          </a>
+        </div>
       </div>
     </section>
   );

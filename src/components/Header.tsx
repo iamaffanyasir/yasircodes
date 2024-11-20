@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Spiral as Hamburger } from 'hamburger-react';
 import { authService } from '../utils/auth';
 import './Header.css';
 
@@ -33,7 +34,19 @@ const Header: React.FC = () => {
           YasirCodes
         </Link>
 
-        <ul className="nav-links">
+        {/* Mobile Menu Button */}
+        <div className="mobile-menu-button">
+          <Hamburger 
+            toggled={isMenuOpen} 
+            toggle={setIsMenuOpen}
+            color="#64ffda"
+            size={25}
+            duration={0.8}
+          />
+        </div>
+
+        {/* Navigation Links */}
+        <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
           <li>
             <Link 
               to="/" 
