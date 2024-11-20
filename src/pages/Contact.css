@@ -1,0 +1,174 @@
+.contact-page {
+  min-height: 100vh;
+  padding: 120px 0 100px;
+  background-color: var(--dark-navy);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contact-header h1 {
+  font-size: 48px;
+  color: var(--lightest-slate);
+  margin-bottom: 10px;
+}
+
+.contact-header p {
+  color: var(--slate);
+  font-size: 18px;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--light-navy);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateY(-5px);
+}
+
+.info-item i {
+  font-size: 24px;
+  color: var(--green);
+}
+
+.info-item h3 {
+  color: var(--lightest-slate);
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.info-item p {
+  color: var(--slate);
+  font-size: 16px;
+}
+
+.contact-form {
+  background-color: var(--light-navy);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px -15px var(--navy-shadow);
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--dark-navy);
+  border: none;
+  border-radius: 5px;
+  color: var(--lightest-slate);
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+}
+
+.form-group textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+}
+
+.focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--green);
+  transition: width 0.3s ease;
+}
+
+.form-group input:focus ~ .focus-border,
+.form-group textarea:focus ~ .focus-border {
+  width: 100%;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: transparent;
+  border: 1px solid var(--green);
+  color: var(--green);
+  font-size: 16px;
+  font-family: 'Fira Code', monospace;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+.submit-btn.sending {
+  background-color: var(--green);
+  color: var(--dark-navy);
+  cursor: wait;
+}
+
+.submit-btn.sent {
+  background-color: var(--green);
+  color: var(--dark-navy);
+}
+
+@media (max-width: 968px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .contact-info {
+    order: 2;
+  }
+
+  .contact-form {
+    order: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-header h1 {
+    font-size: 36px;
+  }
+
+  .contact-header p {
+    font-size: 16px;
+  }
+
+  .contact-form {
+    padding: 30px 20px;
+  }
+} 

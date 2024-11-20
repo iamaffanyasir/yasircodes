@@ -1,0 +1,236 @@
+.resume-page {
+  min-height: 100vh;
+  padding: 120px 0 100px;
+  background-color: var(--dark-navy);
+}
+
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.header-content h1 {
+  font-size: 48px;
+  color: var(--lightest-slate);
+  margin-bottom: 10px;
+}
+
+.header-content p {
+  color: var(--slate);
+  font-size: 18px;
+}
+
+.download-btn {
+  padding: 12px 24px;
+  background-color: var(--green);
+  color: var(--dark-navy);
+  border: none;
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.download-btn:hover {
+  background-color: transparent;
+  color: var(--green);
+  box-shadow: inset 0 0 0 1px var(--green);
+}
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+.resume-section {
+  margin-bottom: 40px;
+}
+
+.resume-section h2 {
+  color: var(--lightest-slate);
+  font-size: 24px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--lightest-navy);
+}
+
+.resume-section h2 i {
+  color: var(--green);
+}
+
+.experience-item,
+.education-item {
+  background-color: var(--light-navy);
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.experience-item:hover,
+.education-item:hover {
+  transform: translateY(-5px);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item-header h3 {
+  color: var(--lightest-slate);
+  font-size: 20px;
+}
+
+.period {
+  color: var(--green);
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+}
+
+.experience-item h4,
+.education-item h4 {
+  color: var(--slate);
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.experience-item ul,
+.education-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.experience-item li,
+.education-item li {
+  color: var(--slate);
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.experience-item li::before,
+.education-item li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+}
+
+.skills-category {
+  margin-bottom: 25px;
+}
+
+.skills-category h3 {
+  color: var(--green);
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-family: 'Fira Code', monospace;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  color: var(--slate);
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  padding: 5px 10px;
+  background-color: rgba(100, 255, 218, 0.1);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background-color: rgba(100, 255, 218, 0.2);
+  transform: translateY(-2px);
+}
+
+.certification-item {
+  background-color: var(--light-navy);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.certification-item h3 {
+  color: var(--lightest-slate);
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.certification-item p {
+  color: var(--slate);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.certification-item a {
+  color: var(--green);
+  text-decoration: none;
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+}
+
+.certification-item a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 968px) {
+  .resume-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .header-content h1 {
+    font-size: 36px;
+  }
+
+  .item-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .experience-item h4,
+  .education-item h4 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-page {
+    padding: 100px 20px;
+  }
+
+  .experience-item,
+  .education-item,
+  .certification-item {
+    padding: 15px;
+  }
+} 

@@ -1,0 +1,118 @@
+.admin-login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-navy);
+  padding: 20px;
+}
+
+.login-box {
+  background-color: var(--light-navy);
+  padding: 2.5rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  border: 1px solid var(--lightest-navy);
+}
+
+.login-box h1 {
+  color: var(--lightest-slate);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Calibre', sans-serif;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--slate);
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--navy);
+  border: 1px solid var(--lightest-navy);
+  border-radius: 4px;
+  color: var(--lightest-slate);
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.1);
+}
+
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: transparent;
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  color: var(--green);
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.login-button:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  color: #ff6b6b;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  text-align: center;
+}
+
+.toggle-mode-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  color: var(--slate);
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.toggle-mode-button:hover {
+  color: var(--green);
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 2rem;
+  }
+
+  .login-box h1 {
+    font-size: 1.75rem;
+  }
+} 
