@@ -1,16 +1,16 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { initializeApp, FirebaseApp } from 'firebase/app';
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+  apiKey: "AIzaSyAGzCOhST-ccl555svwnFPLUjxtNnlPSjI",
+  authDomain: "ay-portfolio-b7efc.firebaseapp.com",
+  projectId: "ay-portfolio-b7efc",
+  storageBucket: "ay-portfolio-b7efc.appspot.com",
+  messagingSenderId: "415095381306",
+  appId: "1:415095381306:web:fdd3ceaf5febe5f6d78403",
+  measurementId: "G-B3Z6E6GYKX"
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+// Initialize Firebase with proper typing
+const app: FirebaseApp = initializeApp(firebaseConfig);
+
 export default app; 
