@@ -271,6 +271,56 @@
     color: var(--lightest-slate);
     text-align: center;
   }
+
+  /* Simplify animations for mobile */
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .scroll-reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .visible .reveal-item {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Optimize tech grid for mobile */
+  .tech-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .tech-item {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    background-color: var(--light-navy);
+    padding: 8px;
+  }
+
+  .tech-item:hover {
+    transform: none;
+    background-color: var(--light-navy);
+  }
 }
 
 @media (max-width: 480px) {
@@ -321,67 +371,58 @@
   .tech-categories {
     gap: 25px;
   }
+
+  /* Simplify animations completely for smaller devices */
+  .tech-item {
+    animation: none;
+  }
+
+  /* Remove stagger animations */
+  .tech-grid .tech-item:nth-child(n) {
+    animation-delay: 0s;
+  }
+
+  /* Optimize layout */
+  .about {
+    padding: 40px 15px;
+  }
+
+  .tech-categories {
+    gap: 15px;
+  }
+
+  .tech-category {
+    padding: 15px;
+  }
+
+  /* Improve performance by disabling transitions */
+  .tech-category::before {
+    display: none;
+  }
+
+  .tech-item::after {
+    display: none;
+  }
 }
 
-/* Animation Delays */
-.visible .reveal-item:nth-child(1) { transition-delay: 0.1s; }
-.visible .reveal-item:nth-child(2) { transition-delay: 0.2s; }
-.visible .reveal-item:nth-child(3) { transition-delay: 0.3s; }
-
-.visible .tech-category:nth-child(1) { transition-delay: 0.2s; }
-.visible .tech-category:nth-child(2) { transition-delay: 0.3s; }
-.visible .tech-category:nth-child(3) { transition-delay: 0.4s; }
-.visible .tech-category:nth-child(4) { transition-delay: 0.5s; }
-.visible .tech-category:nth-child(5) { transition-delay: 0.6s; }
-
+/* Remove complex animations for mobile */
 @media (max-width: 768px) {
-  .about-section {
-    padding: 80px 25px;
+  @keyframes fadeInUp {
+    from {
+      opacity: 1;
+      transform: none;
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 
-  .about-content {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .about-text {
-    width: 100%;
-  }
-
-  .section-title {
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
-
-  .about-description {
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .skills-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-top: 25px;
-  }
-
-  .skill-item {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-
-  .profile-container {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-
-  .profile-wrapper {
-    margin-top: 20px;
-  }
-
-  .profile-image {
-    width: 100%;
-    height: auto;
+  /* Remove animation delays */
+  .visible .reveal-item:nth-child(n),
+  .visible .tech-category:nth-child(n),
+  .tech-grid .tech-item:nth-child(n) {
+    transition-delay: 0s;
   }
 }
 

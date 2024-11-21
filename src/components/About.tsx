@@ -5,6 +5,17 @@ const About: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // Check if device is mobile
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      // For mobile devices, simply add the visible class without animation
+      if (sectionRef.current) {
+        sectionRef.current.classList.add('visible');
+      }
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
