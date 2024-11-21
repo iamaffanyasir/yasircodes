@@ -51,7 +51,7 @@ const Projects: React.FC = () => {
       description: "Collaborative task management application with real-time updates and team features.",
       technologies: ["React", "Firebase", "Material-UI", "Redux"],
       githubLink: "https://github.com/yourusername/task-app",
-      image: "/images/task-app.jpg",
+      image: "/images/task-app.png",
       featured: false,
       category: "Web Development"
     },
@@ -70,7 +70,7 @@ const Projects: React.FC = () => {
       description: "Mobile application for real-time object detection and image classification using TensorFlow.",
       technologies: ["React Native", "TensorFlow", "Python", "Flask"],
       githubLink: "https://github.com/yourusername/image-recognition",
-      image: "/images/image-recognition.jpg",
+      image: "/images/image-recognition.png",
       featured: false,
       category: "AI/ML"
     },

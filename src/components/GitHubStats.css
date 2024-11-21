@@ -191,13 +191,19 @@
 
 @media (max-width: 768px) {
   .github-stats {
-    padding: 60px 20px;
+    padding: 80px 25px;
+  }
+
+  .github-content {
+    width: 100%;
+    padding: 0;
   }
 
   .github-profile {
     flex-direction: column;
     text-align: center;
     padding: 20px;
+    margin-bottom: 40px;
   }
 
   .github-info {
@@ -206,75 +212,38 @@
 
   .github-stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 10px;
   }
 
   .github-graphs {
     grid-template-columns: 1fr;
-  }
-
-  .stats-container {
-    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    margin-bottom: 30px;
+    padding: 10px;
   }
 
-  .stat-card {
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    background-color: var(--light-navy);
-    border: 1px solid var(--lightest-navy);
-    transition: transform 0.3s ease;
+  .stat-card, .graph-card {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
   }
 
-  .stat-card:hover {
-    transform: translateY(-5px);
+  .stat-card:hover, .graph-card:hover {
+    transform: none;
   }
 
-  .stat-number {
-    font-size: 32px;
-    color: var(--green);
-    margin-bottom: 8px;
-    font-weight: 600;
+  .github-stats .section-heading {
+    font-size: 28px;
+    margin-bottom: 40px;
   }
 
-  .stat-label {
-    font-size: 14px;
-    color: var(--slate);
-    font-family: 'Fira Code', monospace;
+  .github-bio h3 {
+    font-size: 20px;
   }
 
-  .contributions {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: var(--light-navy);
-    border-radius: 8px;
-    border: 1px solid var(--lightest-navy);
-  }
-
-  .contributions-title {
-    font-size: 18px;
-    color: var(--lightest-slate);
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  .contributions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(8px, 1fr));
-    gap: 3px;
-    justify-content: center;
-  }
-
-  .contribution-day {
-    width: 8px;
-    height: 8px;
-    border-radius: 2px;
-    transition: transform 0.2s ease;
-  }
-
-  .contribution-day:hover {
-    transform: scale(1.2);
+  .github-bio p {
+    font-size: 16px;
   }
 }
 
@@ -284,91 +253,74 @@
   }
 
   .github-stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .github-profile {
-    padding: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .stat-card {
-    padding: 15px;
+    padding: 12px 8px;
   }
 
-  .stat-number {
-    font-size: 28px;
-    margin-bottom: 6px;
+  .graph-card {
+    padding: 12px;
   }
 
-  .stat-label {
-    font-size: 12px;
+  .github-stats .section-heading {
+    font-size: 24px;
   }
 
-  .contributions {
-    margin-top: 25px;
-    padding: 15px;
+  .github-bio h3 {
+    font-size: 18px;
   }
 
-  .contributions-title {
-    font-size: 16px;
-    margin-bottom: 15px;
+  .github-bio p {
+    font-size: 15px;
   }
 
-  .contributions-grid {
-    gap: 2px;
+  .stat-card h3 {
+    font-size: 20px;
   }
 
-  .contribution-day {
-    width: 6px;
-    height: 6px;
+  .stat-card p {
+    font-size: 11px;
   }
-
-  /* Add loading animation for stats */
-  .stat-card {
-    animation: fadeInUp 0.5s ease forwards;
-    opacity: 0;
-  }
-
-  .stat-card:nth-child(1) { animation-delay: 0.1s; }
-  .stat-card:nth-child(2) { animation-delay: 0.2s; }
-  .stat-card:nth-child(3) { animation-delay: 0.3s; }
-  .stat-card:nth-child(4) { animation-delay: 0.4s; }
 
   @keyframes fadeInUp {
     from {
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 1;
+      transform: none;
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
+  }
+
+  .stat-card:nth-child(n),
+  .graph-card:nth-child(n) {
+    animation-delay: 0s;
   }
 }
 
-/* Animation for stats cards */
 .stat-card, .graph-card {
-  opacity: 0;
-  animation: fadeInUp 0.5s ease forwards;
+  opacity: 1;
+  transform: none;
+  animation: none;
+  transition: none;
 }
 
-.stat-card:nth-child(1) { animation-delay: 0.1s; }
-.stat-card:nth-child(2) { animation-delay: 0.2s; }
-.stat-card:nth-child(3) { animation-delay: 0.3s; }
-.stat-card:nth-child(4) { animation-delay: 0.4s; }
-
-.graph-card:nth-child(1) { animation-delay: 0.5s; }
-.graph-card:nth-child(2) { animation-delay: 0.6s; }
-.graph-card:nth-child(3) { animation-delay: 0.7s; }
-.graph-card:nth-child(4) { animation-delay: 0.8s; }
+.stat-card:nth-child(n),
+.graph-card:nth-child(n) {
+  animation-delay: 0s;
+}
 
 @keyframes fadeInUp {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: none;
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 } 

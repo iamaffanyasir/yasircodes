@@ -20,6 +20,9 @@ const GitHubStats: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Check if device is mobile
+    const isMobile = window.innerWidth <= 768;
+
     const fetchGitHubData = async () => {
       try {
         const response = await fetch('https://api.github.com/users/iamaffanyasir');
@@ -31,6 +34,14 @@ const GitHubStats: React.FC = () => {
         setLoading(false);
       }
     };
+
+    // For mobile devices, remove animations
+    if (isMobile) {
+      const elements = document.querySelectorAll('.stat-card, .graph-card');
+      elements.forEach(el => {
+        el.classList.add('no-animation');
+      });
+    }
 
     fetchGitHubData();
   }, []);
