@@ -158,11 +158,11 @@ const Resume: React.FC = () => {
             <p>My Professional Background</p>
           </div>
           <a 
-            href={resumeLink}
+            href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="download-btn"
-            download
+            download="Affan_Yasir_Resume.pdf"
           >
             <i className="fas fa-download"></i> Download PDF
           </a>
