@@ -148,6 +148,15 @@ const Resume: React.FC = () => {
     }
   ];
   
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = `${process.env.PUBLIC_URL}/resume.pdf`;
+    link.download = 'Affan_Yasir_Resume.pdf';
+    link.type = 'application/pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <section className="resume-page">
@@ -157,15 +166,12 @@ const Resume: React.FC = () => {
             <h1>Resume</h1>
             <p>My Professional Background</p>
           </div>
-          <a 
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button 
+            onClick={handleDownload}
             className="download-btn"
-            download="Affan_Yasir_Resume.pdf"
           >
             <i className="fas fa-download"></i> Download PDF
-          </a>
+          </button>
         </div>
 
         <div className="resume-grid">
